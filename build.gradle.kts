@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 
 plugins {
     kotlin("jvm") version "1.5.10"
@@ -18,6 +19,10 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
+    testLogging.exceptionFormat = TestExceptionFormat.FULL
+    testLogging.showExceptions = true
+    testLogging.showStackTraces = false
+    testLogging.showStandardStreams = true
 }
 
 tasks.withType<KotlinCompile>() {

@@ -9,41 +9,10 @@ class TennisTest {
     @MethodSource("allScores")
     fun checkAllScoresTennisGame1(player1Score: Int, player2Score: Int, expectedScore: String) {
         val game = TennisGame1("player1", "player2")
-        checkAllScores(game, player1Score, player2Score, expectedScore)
-    }
-
-    @ParameterizedTest
-    @MethodSource("allScores")
-    fun checkAllScoresTennisGame2(player1Score: Int, player2Score: Int, expectedScore: String) {
-        val game = TennisGame2("player1", "player2")
-        checkAllScores(game, player1Score, player2Score, expectedScore)
-    }
-
-    @ParameterizedTest
-    @MethodSource("allScores")
-    fun checkAllScoresTennisGame3(player1Score: Int, player2Score: Int, expectedScore: String) {
-        val game = TennisGame3("player1", "player2")
-        checkAllScores(game, player1Score, player2Score, expectedScore)
-    }
-
-    @ParameterizedTest
-    @MethodSource("allScores")
-    fun checkAllScoresTennisGame4(player1Score: Int, player2Score: Int, expectedScore: String) {
-        val game = TennisGame4("player1", "player2")
-        checkAllScores(game, player1Score, player2Score, expectedScore)
-    }
-
-    fun checkAllScores(game: TennisGame, player1Score: Int, player2Score: Int, expectedScore: String) {
-        val highestScore = Math.max(player1Score, player2Score)
-        for (i in 0 until highestScore) {
-            if (i < player1Score)
-                game.wonPoint("player1")
-            if (i < player2Score)
-                game.wonPoint("player2")
-        }
+        repeat(player1Score) { game.wonPoint("player1") }
+        repeat(player2Score) { game.wonPoint("player2") }
         assertEquals(expectedScore, game.getScore())
     }
-
     companion object {
         @JvmStatic
         fun allScores(): List<Arguments> =

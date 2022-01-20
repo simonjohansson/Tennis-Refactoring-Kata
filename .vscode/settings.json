@@ -2,5 +2,7 @@
     "code-runner.executorMap": {
         "kotlin": "./gradlew test #"
     },
-    "code-runner.runInTerminal": false
+    "code-runner.runInTerminal": false,
+    "code-runner.saveAllFilesBeforeRun": true,
+    "java.configuration.updateBuildConfiguration": "automatic"
 }
