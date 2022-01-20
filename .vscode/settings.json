@@ -1,0 +1,6 @@
+{
+    "code-runner.executorMap": {
+        "kotlin": "./gradlew test #"
+    },
+    "code-runner.runInTerminal": false
+}
